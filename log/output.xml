@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.2 on win32)" generated="20230321 16:56:21.271" rpa="false" schemaversion="3">
+<suite id="s1" name="Demo1 Pet Shop Suite" source="C:\Mine\Company\SaamaTech2\robot_project\5__api_suite\demo1_pet_shop_suite.robot">
+<test id="s1-t1" name="TC1 GET VALID PET" line="6">
+<kw name="Set Variable" library="BuiltIn">
+<var>${pet_id}</var>
+<arg>61017777</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230321 16:56:21.505" level="INFO">${pet_id} = 61017777</msg>
+<status status="PASS" starttime="20230321 16:56:21.504" endtime="20230321 16:56:21.506"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=petshop</arg>
+<arg>url=https://petstore.swagger.io/v2</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230321 16:56:21.507" level="INFO">Creating Session using : alias=petshop, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230321 16:56:21.507" endtime="20230321 16:56:21.507"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=petshop</arg>
+<arg>url=/pet/${pet_id}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230321 16:56:22.516" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/61017777 
+ path_url=/v2/pet/61017777 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230321 16:56:22.518" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/61017777 
+ status=404, reason=Not Found 
+ headers={'Date': 'Tue, 21 Mar 2023 11:26:23 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":1,"type":"error","message":"Pet not found"} 
+ </msg>
+<msg timestamp="20230321 16:56:22.519" level="INFO">C:\Program Files\Python310\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230321 16:56:22.521" level="FAIL">Url: https://petstore.swagger.io/v2/pet/61017777 Expected status: 404 != 200</msg>
+<status status="FAIL" starttime="20230321 16:56:21.508" endtime="20230321 16:56:22.549"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230321 16:56:22.550" endtime="20230321 16:56:22.550"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230321 16:56:22.551" endtime="20230321 16:56:22.551"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>expected_status=200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" starttime="20230321 16:56:22.552" endtime="20230321 16:56:22.552"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.json()}[id]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230321 16:56:22.553" endtime="20230321 16:56:22.553"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.json()}[name]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230321 16:56:22.554" endtime="20230321 16:56:22.555"/>
+</kw>
+<status status="FAIL" starttime="20230321 16:56:21.503" endtime="20230321 16:56:22.556">Url: https://petstore.swagger.io/v2/pet/61017777 Expected status: 404 != 200</status>
+</test>
+<status status="FAIL" starttime="20230321 16:56:21.274" endtime="20230321 16:56:22.558"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Demo1 Pet Shop Suite">Demo1 Pet Shop Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

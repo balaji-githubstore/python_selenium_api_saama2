@@ -1,0 +1,18 @@
+{
+  "id": 6101,
+  "category": {
+    "id": 0,
+    "name": "string-610-robot"
+  },
+  "name": "doggie-6101",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string-610"
+    }
+  ],
+  "status": "available"
+}
