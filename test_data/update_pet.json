@@ -1,0 +1,18 @@
+{
+  "id": 6101,
+  "category": {
+    "id": 0,
+    "name": "string-610"
+  },
+  "name": "doggie-kim",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string-610"
+    }
+  ],
+  "status": "available"
+}
